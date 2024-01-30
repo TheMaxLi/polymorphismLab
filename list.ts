@@ -1,12 +1,22 @@
 import { ISortable } from "./interface";
 
 export class NumberGroup implements ISortable {
-    data: number[]
-    get length(): number {}
-    compare(leftPos: number, rightPost: number): boolean {
-    
+    private _data: number[]
+
+    constructor(data: number[]) {
+        this._data = data
     }
-    swap(leftPos: number, rightPost: number): void {
-        
+
+
+    get length(): number {
+        return this._data.length
+    }
+    compare(leftPos: number, rightPos: number): boolean {
+        return leftPos > rightPos
+    }
+    swap(leftPos: number, rightPos: number): void {
+        let tempPos = leftPos
+        leftPos = rightPos
+        rightPos = tempPos
     }
 }

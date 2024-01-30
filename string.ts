@@ -1,12 +1,19 @@
 import { ISortable } from "./interface";
 
 export class Charactergroup implements ISortable {
-    data: string
-    get length(): number {}
-    compare(leftPos: number, rightPost: number): boolean {
-    
+    private _data: string
+
+    constructor(data: string) {
+        this._data = data
     }
-    swap(leftPos: number, rightPost: number): void {
+
+    get length(): number {
+        return this._data.length
+    }
+    compare(leftPos: number, rightPos: number): boolean {
+        leftPos.attr.localeCompare(rightPos.attr);
+    }
+    swap(leftPos: number, rightPos: number): void {
         
     }
 }

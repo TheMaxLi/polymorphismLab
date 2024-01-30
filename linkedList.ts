@@ -9,17 +9,17 @@ class Node {
   }
 
   export class LinkedListGroup implements ISortable {
-    head: Node | null = null;
+    private _head: Node | null = null;
   
     // Create Node out of data and attach to end of list
     add(data: number): void {
       const node = new Node(data);
-      if (!this.head) {
-        this.head = node;
+      if (!this._head) {
+        this._head = node;
         return;
       }
   
-      let tail = this.head;
+      let tail = this._head;
       while (tail.next) {
         tail = tail.next;
       }
@@ -28,16 +28,25 @@ class Node {
   
     // Should return number of Nodes in List
     get length(): number {
-      // implement this part yourself
+        if (!this._head) {
+            return 0;
+          }
+          let count = 0
+          let node: Node | null = this._head;
+          while (node) {
+            count++
+            node = node.next;
+          }
+          return count
     }
   
    // Convenience method that returns a Node at a given index
     at(index: number): Node {
-      if (!this.head) {
+      if (!this._head) {
         throw new Error("Error: Index out of bounds");
       }
       let counter = 0;
-      let node: Node | null = this.head;
+      let node: Node | null = this._head;
       while (node) {
         if (counter === index) {
           return node;
@@ -50,6 +59,7 @@ class Node {
   
     compare(leftPos: number, rightPos: number): boolean {
       // Implement this part yourself
+      return true
     }
   
     swap(leftPos: number, rightPos: number): void {
@@ -57,10 +67,10 @@ class Node {
     }
   
     print(): void {
-      if (!this.head) {
+      if (!this._head) {
         return;
       }
-      let node: Node | null = this.head;
+      let node: Node | null = this._head;
       while (node) {
         console.log(node.data);
         node = node.next;
