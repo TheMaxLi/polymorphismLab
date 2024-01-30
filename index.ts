@@ -25,12 +25,15 @@ class SortUtil {
     }
 }
   
-const sortUtil1 = new SortUtil(new LinkedListGroup);
-sortUtil1.sort();
 const link = new LinkedListGroup() 
 link.add(12)
 link.add(23)
 link.add(1)
+link.add(0)
+console.log(link.at(0))
+const sortUtil1 = new SortUtil(link);
+sortUtil1.sort();
+link.print()
 
 const sortUtil2 = new SortUtil(new NumberGroup([3, 12, 23, 2, 3, 1, 0]));
 sortUtil2.sort()

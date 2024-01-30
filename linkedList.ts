@@ -58,13 +58,16 @@ class Node {
     }
   
     compare(leftPos: number, rightPos: number): boolean {
-      if (!this.at(leftPos)) {
-        throw new Error("Error")
-      }
-    }
+        return this.at(leftPos).data > this.at(rightPos).data
+    } 
   
     swap(leftPos: number, rightPos: number): void {
-      // Implement this part yourself
+        if (!this.at(leftPos).data || !this.at(leftPos).data) {
+            return 
+        }
+        let tempData = this.at(leftPos).data 
+        this.at(leftPos).data = this.at(rightPos).data 
+        this.at(leftPos).data = tempData
     }
   
     print(): void {
