@@ -4,9 +4,12 @@ export class NumberGroup implements ISortable {
     private _data: number[]
 
     constructor(data: number[]) {
-        this._data = data
+        this._data = data 
     }
 
+    get data(): number[] {
+        return this._data
+    }
 
     get length(): number {
         return this._data.length
