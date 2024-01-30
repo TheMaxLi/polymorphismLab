@@ -48,9 +48,9 @@ class Node {
       let counter = 0;
       let node: Node | null = this._head;
       while (node) {
-        if (counter === index) {
-          return node;
-        }
+          if (counter === index) {
+              return node;
+            }
         counter++;
         node = node.next;
       }
@@ -62,12 +62,12 @@ class Node {
     } 
   
     swap(leftPos: number, rightPos: number): void {
-        if (!this.at(leftPos).data || !this.at(leftPos).data) {
-            return 
-        }
-        let tempData = this.at(leftPos).data 
-        this.at(leftPos).data = this.at(rightPos).data 
-        this.at(leftPos).data = tempData
+          let leftNodeData = this.at(leftPos)
+          let rightNodeData = this.at(rightPos)
+      
+          let temp = leftNodeData.data;
+          leftNodeData.data = rightNodeData.data;
+          rightNodeData.data = temp;
     }
   
     print(): void {

@@ -15,12 +15,19 @@ class SortUtil {
     }
 
     sort(): void {
-        for (let j = 0; j < this._collection.length; j++) {
-            for (let i = 0; i < this._collection.length; i++) {
-                if (this._collection.compare(i, i+1)) {
-                    this._collection.swap(i, i+1)
+        const {length} = this._collection
+        let isSorted = false
+        let lastUnsorted = length -1
+        while (!isSorted) {
+            isSorted = true
+            for (let j = 0; j < this._collection.length; j++) {
+                for (let i = 0; i < lastUnsorted; i++) {
+                    if (this._collection.compare(i, i+1)) {
+                        this._collection.swap(i, i+1)
+                    }
                 }
-            }
+            }   
+        lastUnsorted--
         }
     }
 }
@@ -30,7 +37,7 @@ link.add(12)
 link.add(23)
 link.add(1)
 link.add(0)
-console.log(link.at(0))
+
 const sortUtil1 = new SortUtil(link);
 sortUtil1.sort();
 link.print()
