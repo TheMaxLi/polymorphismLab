@@ -15,11 +15,11 @@ export class NumberGroup implements ISortable {
         return this._data.length
     }
     compare(leftPos: number, rightPos: number): boolean {
-        return leftPos > rightPos
+        return this._data[leftPos] > this._data[rightPos]
     }
     swap(leftPos: number, rightPos: number): void {
-        let tempPos = leftPos
-        leftPos = rightPos
-        rightPos = tempPos
+        let tempLeft = this._data[leftPos]
+        this._data[leftPos] = this._data[rightPos]
+        this._data[rightPos] = tempLeft
     }
 }

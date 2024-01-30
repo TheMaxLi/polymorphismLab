@@ -58,8 +58,9 @@ class Node {
     }
   
     compare(leftPos: number, rightPos: number): boolean {
-      // Implement this part yourself
-      return true
+      if (!this.at(leftPos)) {
+        throw new Error("Error")
+      }
     }
   
     swap(leftPos: number, rightPos: number): void {

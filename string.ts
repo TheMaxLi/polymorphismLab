@@ -7,22 +7,18 @@ export class Charactergroup implements ISortable {
         this._data = data
     }
 
-    get data(): number[] {
-        let newData : number[] = []
-        let splitString = this._data.split("")
-        for (let i = 0; i < splitString.length; i++) {
-            newData.push(splitString[i].charCodeAt(0)) 
-        }
-        return newData
-    }
-
     get length(): number {
         return this._data.length
     }
     compare(leftPos: number, rightPos: number): boolean {
-        return true
+        let data = this._data.split("")
+        return (data[leftPos].localeCompare(data[rightPos]) > 0)
     }
     swap(leftPos: number, rightPos: number): void {
-        
+        let data = this._data.split("")
+        let tempLeft = data[leftPos]
+        data[leftPos] = data[rightPos]
+        data[rightPos] = tempLeft
+        this._data = data.join("")
     }
 }
